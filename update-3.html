@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Outreach in the Library | Double Quarter Pounders</title>
+  <meta name="description" content="FTC 23928 team update." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    .post-page { padding: 3rem 0 5rem; }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--accent, #e8272b);
+      text-decoration: none;
+      margin-bottom: 2.2rem;
+      transition: gap .2s;
+    }
+    .back-link:hover { gap: .7rem; }
+
+    .post-header { margin-bottom: 2.5rem; }
+    .post-header .tag { margin-bottom: .8rem; }
+    .post-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin: 0 0 .7rem;
+    }
+    .post-header .post-meta {
+      font-size: .85rem;
+      color: #888;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+
+    .post-hero-placeholder {
+      width: 100%;
+      height: 300px;
+      border-radius: 14px;
+      background: #f2f2f2;
+      border: 2px dashed #ddd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      color: #aaa;
+      font-size: .9rem;
+      font-weight: 600;
+      margin-bottom: 2.5rem;
+    }
+    .post-hero-placeholder i { font-size: 2.5rem; opacity: .4; }
+
+    .post-content { max-width: 720px; }
+    .post-content p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 1.4rem;
+    }
+
+    .album-section { margin-top: 4rem; }
+    .album-section h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: .4rem; }
+    .album-section .album-sub { font-size: .9rem; color: #888; margin-bottom: 1.8rem; }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .photo-slot {
+      aspect-ratio: 4/3;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #f2f2f2;
+      border: 2px dashed #ddd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .4rem;
+      color: #aaa;
+      font-size: .8rem;
+      font-weight: 600;
+      transition: border-color .2s;
+    }
+    .photo-slot:hover { border-color: #bbb; }
+    .photo-slot i { font-size: 1.6rem; opacity: .5; }
+    .photo-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .divider { border: none; border-top: 1px solid #eee; margin: 3rem 0; }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container top-brand-row">
+      <div class="brand">
+        <img src="assets/logo.png" class="team-logo" alt="Double Quarter Pounders logo">
+        <div class="brand-text">
+          <div class="brand-title">Double Quarter Pounders</div>
+          <div class="brand-sub">FTC 23928 since 2023</div>
+        </div>
+      </div>
+    </div>
+    <div class="menu-bar">
+      <div class="container menu-inner">
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="index.html#success">Competition Success</a>
+          <a href="index.html#updates">Team Updates</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="index.html#donate" class="donate-btn">Donate</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="post-page">
+      <div class="container">
+
+        <a class="back-link" href="index.html#updates">← Back to Team Updates</a>
+
+        <div class="post-header">
+          <!-- Change "tag gold" to "tag green", "tag cheese", etc. to match the topic -->
+          <span class="tag gold">Update</span>
+          <!-- ✏️ EDIT: Replace the title below -->
+          <h1>Outreach in the Library</h1>
+          <!-- ✏️ EDIT: Replace the date and author -->
+          <div class="post-meta">2025 &nbsp;·&nbsp; by Team 23928</div>
+        </div>
+
+        <img class="post-hero-img" src="assets/library-outreach/library1.jpg" alt="Outreach in the Library" style="width:100%;max-height:480px;object-fit:cover;border-radius:14px;margin-bottom:2.5rem;display:block;" />
+
+        <div class="post-content">
+          <p>
+            Last year, Double Quarter Pounders (FTC 23928) headed to the local library to share our passion for engineering with the community. We set up a demo station in the meeting room, turning a quiet Saturday afternoon into a hands-on exploration of how our competition robot actually works.
+          </p>
+          <p>
+            The highlight for many of the visitors was the chance to take the controls. We let students of all ages grab the gamepads to test-drive the bot, while we used the room's displays to walk parents through our design and coding process. It was a great opportunity to move beyond the competition field and show the "how" and "why" behind every gear and line of code.
+          </p>
+          <p>
+            These library visits are a core part of our mission to make STEM feel accessible. There's a special kind of energy that happens when a child realizes they can actually command a machine they've only ever seen in videos. Whether we were troubleshooting a turn with a toddler or discussing sensors with a middle schooler, the goal was to prove that robotics is for everyone.
+          </p>
+          <p>
+            We're incredibly grateful to the library staff for hosting us and to all the families who brought such great questions and curiosity. Building these local connections reminds our team why we do this, and we're already looking forward to our next community session.
+          </p>
+        </div>
+
+        <hr class="divider">
+
+        <!-- ── PHOTO ALBUM ── -->
+        <div class="album-section">
+          <h2>Photo Album</h2>
+          <p class="album-sub">Photos from the event:</p>
+
+          <div class="photo-grid">
+
+            <div class="photo-slot">
+              <img src="assets/library-outreach/library2.jpg" alt="Outreach in the Library" />
+            </div>
+            <div class="photo-slot">
+              <img src="assets/library-outreach/library3.jpg" alt="Outreach in the Library" />
+            </div>
+            <div class="photo-slot">
+              <img src="assets/library-outreach/library4.jpg" alt="Outreach in the Library" />
+            </div>
+            <div class="photo-slot">
+              <img src="assets/library-outreach/library5.jpg" alt="Outreach in the Library" />
+            </div>
+            <div class="photo-slot">
+              <img src="assets/library-outreach/library6.jpg" alt="Outreach in the Library" />
+            </div>
+            <div class="photo-slot">
+              <img src="assets/library-outreach/library7.jpg" alt="Outreach in the Library" />
+            </div>
+            <div class="photo-slot">
+              <img src="assets/library-outreach/library8.jpg" alt="Outreach in the Library" />
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo small">DQ</span>
+        <div>
+          <div class="footer-title">Double Quarter Pounders • FTC 23928</div>
+          <div class="footer-sub">Built by students. Powered by mentors &amp; sponsors.</div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#success">Success</a>
+        <a href="index.html#updates">Updates</a>
+        <a href="/cdn-cgi/l/email-protection#f88c9d9995cacbc1cac0b89d80999588949dd69b9795">Mail</a>
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+      </
