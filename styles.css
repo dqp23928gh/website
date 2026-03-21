@@ -641,3 +641,8 @@ h1{
   background:#ff3b30;
   color:white;
 }
+.header-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
