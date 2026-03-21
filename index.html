@@ -19,13 +19,22 @@
   <!-- Header -->
 <header class="site-header">
   <div class="container top-brand-row">
-    <div class="brand">
-      <img src="assets/logo.png" class="team-logo" alt="Double Quarter Pounders logo">
+    <div class="header-row">
 
-      <div class="brand-text">
-        <div class="brand-title">Double Quarter Pounders</div>
-        <div class="brand-sub">FTC 23928 since 2023</div>
+      <div class="brand">
+        <img src="assets/logo.png" class="team-logo" alt="Double Quarter Pounders logo">
+
+        <div class="brand-text">
+          <div class="brand-title">Double Quarter Pounders</div>
+          <div class="brand-sub">FTC 23928 since 2023</div>
+        </div>
       </div>
+
+      <button class="menu-btn" id="menuBtn">
+        <span class="menu-icon"></span>
+        <span class="menu-label">Menu</span>
+     </button>
+
     </div>
   </div>
 
@@ -301,23 +310,36 @@ Email Us
     </footer>
   </main>
 
-    const menuBtn = document.getElementById('menuBtn');
-    const closeBtn = document.getElementById('closeBtn');
-    const overlay = document.getElementById('menuOverlay');
-    const backdrop = document.getElementById('backdrop');
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const closeBtn = document.getElementById('closeBtn');
+const overlay = document.getElementById('menuOverlay');
+const backdrop = document.getElementById('backdrop');
 
-    function openMenu(){
-      overlay.classList.add('open');
-      overlay.setAttribute('aria-hidden', 'false');
-      menuBtn.setAttribute('aria-expanded', 'true');
-      document.body.classList.add('no-scroll');
-    }
-    function closeMenu(){
-      overlay.classList.remove('open');
-      overlay.setAttribute('aria-hidden', 'true');
-      menuBtn.setAttribute('aria-expanded', 'false');
-      document.body.classList.remove('no-scroll');
-    }
+function openMenu(){
+  overlay.classList.add('open');
+  overlay.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('no-scroll');
+}
 
-    menuBtn?.addEventListener('click', openMenu);
-    closeBtn?.addEventListener('cl%
+function closeMenu(){
+  overlay.classList.remove('open');
+  overlay.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+}
+
+if(menuBtn){
+  menuBtn.addEventListener('click', openMenu);
+}
+
+if(closeBtn){
+  closeBtn.addEventListener('click', closeMenu);
+}
+
+if(backdrop){
+  backdrop.addEventListener('click', closeMenu);
+}
+</script>
+
+</body>
+</html>
