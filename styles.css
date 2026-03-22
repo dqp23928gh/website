@@ -691,18 +691,19 @@ h1 {
   position: relative;
   overflow: hidden;
   background: #111;
-  min-height: 200px;
+  height: 240px;
 }
 
 .slide-track {
   display: flex;
+  flex-direction: row;
   height: 100%;
-  width: 100%;
   transition: transform .4s cubic-bezier(.4,0,.2,1);
+  will-change: transform;
 }
 
 .slide-track img {
-  flex-shrink: 0;
+  flex: 0 0 100%;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -782,7 +783,8 @@ h1 {
 
 .post-img {
   background: rgba(244,196,48,.08);
-  min-height: 180px;
+  height: 240px;
+  min-height: unset;
 }
 
 .post-body {
