@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Double Quarter Pounders | FTC 23928</title>
+  <meta name="description" content="Double Quarter Pounders (FTC 23928) — FIRST Tech Challenge robotics team." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- ═══════════════════ HEADER ═══════════════════ -->
+  <header class="site-header">
+    <div class="container top-brand-row">
+      <div class="header-row">
+        <div class="brand">
+          <img src="assets/logo.png" class="team-logo" alt="Double Quarter Pounders logo">
+          <div class="brand-text">
+            <div class="brand-title">Double Quarter Pounders</div>
+            <div class="brand-sub">FTC 23928 since 2023</div>
+          </div>
+        </div>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+          <span class="menu-icon"></span>
+          <span class="menu-label">Menu</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="menu-bar">
+      <div class="container menu-inner">
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#top">Home</a>
+          <a href="about.html">About</a>
+          <a href="#achievements">Achievements</a>
+          <a href="#updates">Team Updates</a>
+          <a href="#contact">Contact</a>
+          <a href="#donate" class="donate-btn">Donate</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════ OVERLAY MENU ═══════════════════ -->
+  <div class="overlay" id="menuOverlay" aria-hidden="true">
+    <div class="overlay-panel" role="dialog" aria-modal="true" aria-label="Site menu">
+      <div class="overlay-top">
+        <div class="overlay-brand">
+          <span class="logo">DQ</span>
+          <div>
+            <div class="brand-title">Double Quarter Pounders</div>
+            <div class="brand-sub">FTC 23928</div>
+          </div>
+        </div>
+        <button class="close-btn" id="closeBtn" aria-label="Close menu">Close</button>
+      </div>
+
+      <nav class="overlay-nav" aria-label="Primary navigation">
+        <a href="#top">Home</a>
+        <a href="about.html">About</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#updates">Team Updates</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="#donate">Donate</a>
+      </nav>
+
+      <div class="overlay-bottom">
+        <a class="social" href="https://instagram.com/ftcdoublequarterpounders" target="_blank" rel="noopener">Instagram</a>
+        <a class="social" href="/cdn-cgi/l/email-protection#88fbe0e9ffe6a6e0edc8ecf9f8babbb1bab0a6e7faef">Mail</a>
+      </div>
+    </div>
+    <div class="overlay-backdrop" id="backdrop" aria-hidden="true"></div>
+  </div>
+
+  <!-- ═══════════════════ MAIN ═══════════════════ -->
+  <!-- BUG FIX #1: removed duplicate id="top" from <section>; only on <main> -->
+  <main id="top">
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+
+          <div class="team-photo">
+            <img src="assets/team.jpg" alt="Double Quarter Pounders team photo">
+          </div>
+
+          <p class="hero-kicker">
+            <span class="kicker-dot"></span>
+            FIRST Tech Challenge &nbsp;·&nbsp; Student-led &nbsp;·&nbsp; Community-driven
+          </p>
+
+          <h1>We are FTC 23928 —<br><span class="accent">Double Quarter<br>Pounders</span>.</h1>
+
+          <p class="hero-lead-strong">
+            We are not just building robots — we are building future engineers.
+          </p>
+
+          <p class="hero-lead">
+            Through robotics, mentorship, and community outreach, our students gain real-world engineering experience that inspires innovation, leadership, and lifelong learning.
+          </p>
+
+          <p class="hero-lead">
+            With your support, we can bring STEM learning opportunities to more children in our community and inspire the next generation of engineers.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#donate">
+              <i class="fa-solid fa-heart"></i>&nbsp; Donate Today
+            </a>
+            <a class="btn ghost" href="#updates">Team Updates →</a>
+          </div>
+
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TEAM VIDEO ── -->
+    <!-- ── ACHIEVEMENTS ── -->
+    <section class="section achievements-section" id="achievements">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Achievements</h2>
+            <p>Awards &amp; competition highlights.</p>
+          </div>
+        </div>
+
+        <div class="achievements-grid">
+
+          <!-- Inspire Award -->
+          <article class="achievement-card achievement-inspire">
+            <div class="ach-body">
+              <div class="ach-meta-row">
+                <span class="ach-badge gold">Inspire Award</span>
+                <span class="ach-year">2025</span>
+              </div>
+              <h3 class="ach-title">Richmond, VA Qualifier</h3>
+              <p class="ach-desc">Recognized for well-rounded excellence across every dimension of the team — outreach impact, engineering mindset, documentation, and team culture. The Inspire Award is the highest honor in FTC.</p>
+            </div>
+          </article>
+
+          <!-- Alliance Captain -->
+          <article class="achievement-card achievement-alliance">
+            <div class="ach-body">
+              <div class="ach-meta-row">
+                <span class="ach-badge cheese">Winning Alliance Captain</span>
+                <span class="ach-year">2024</span>
+              </div>
+              <h3 class="ach-title">Carolina Premier Event</h3>
+              <p class="ach-desc">Led our alliance to victory as Captain — selected strong partners, coordinated match strategy, and delivered consistent high-performance to win the event.</p>
+            </div>
+          </article>
+
+          <!-- Think Award -->
+          <article class="achievement-card achievement-think">
+            <div class="ach-body">
+              <div class="ach-meta-row">
+                <span class="ach-badge green">Think Award — 2nd Place</span>
+                <span class="ach-year">2024</span>
+              </div>
+              <h3 class="ach-title">Charlottesville, VA Qualifier</h3>
+              <p class="ach-desc">Recognized for our rigorous engineering process, detailed documentation, and iterative problem-solving approach that drives our robot design from concept to competition.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TEAM VIDEO ── -->
+    <section class="section" id="video">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Team Video</h2>
+            <p>Watch us in action.</p>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
+            <iframe
+              style="position:absolute;top:0;left:0;width:100%;height:100%;"
+              src="https://www.youtube.com/embed/7xggK4VgOiE"
+              title="Double Quarter Pounders Team Video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TEAM UPDATES ── -->
+    <!--
+      BUG FIX #2: Removed stray nested <div class="posts"> that opened mid-section
+      BUG FIX #3: Closed unclosed <p> tag in first post (readmore was inside <p>)
+      BUG FIX #4: Removed the orphaned closing </div> left by the stray nested div
+    -->
+    <section class="section" id="updates">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Team Updates</h2>
+            <p>Build season posts, outreach recaps, and announcements.</p>
+          </div>
+        </div>
+
+        <div class="posts">
+
+          <article class="post">
+            <div class="post-img post-slideshow" data-current="0">
+              <div class="slide-track">
+                <img src="assets/media/outreach/stream-night/IMG_0948.jpg" alt="Steam Night photo 1">
+                <img src="assets/media/outreach/stream-night/IMG_0949.jpg" alt="Steam Night photo 2">
+                <img src="assets/media/outreach/stream-night/IMG_0955.jpg" alt="Steam Night photo 3">
+                <img src="assets/media/outreach/stream-night/IMG_0966.jpg" alt="Steam Night photo 4">
+                <img src="assets/media/outreach/stream-night/IMG_0979.jpg" alt="Steam Night photo 5">
+                <img src="assets/media/outreach/stream-night/IMG_1001.jpg" alt="Steam Night photo 6">
+                <img src="assets/media/outreach/stream-night/IMG_1018.jpg" alt="Steam Night photo 7">
+                <img src="assets/media/outreach/stream-night/IMG_5929.jpg" alt="Steam Night photo 8">
+                <img src="assets/media/outreach/stream-night/IMG_5938.jpg" alt="Steam Night photo 9">
+              </div>
+              <button class="slide-btn slide-prev" aria-label="Previous photo">&#8249;</button>
+              <button class="slide-btn slide-next" aria-label="Next photo">&#8250;</button>
+              <div class="slide-dots"></div>
+            </div>
+            <div class="post-body">
+              <span class="post-tag-pill green">Outreach</span>
+              <h3><a href="steam-night.html">Steam Night at Colvin Run Elementary School</a></h3>
+              <div class="post-meta">Feb 27, 2026</div>
+              <p>Our team introduced younger students to the exciting world of robotics and engineering. Through hands-on demos and interactive activities, we inspired curiosity in STEM.</p>
+              <a class="readmore" href="steam-night.html">Read more →</a>
+            </div>
+          </article>
+
+          <article class="post">
+            <div class="post-img post-slideshow" data-current="0">
+              <div class="slide-track">
+                <img src="assets/halloween-outreach/halloween-lead.jpg" alt="Halloween Outreach photo 1">
+                <img src="assets/halloween-outreach/halloween-1.jpg"    alt="Halloween Outreach photo 2">
+                <img src="assets/halloween-outreach/halloween-2.jpg"    alt="Halloween Outreach photo 3">
+                <img src="assets/halloween-outreach/halloween-3.jpg"    alt="Halloween Outreach photo 4">
+              </div>
+              <button class="slide-btn slide-prev" aria-label="Previous photo">&#8249;</button>
+              <button class="slide-btn slide-next" aria-label="Next photo">&#8250;</button>
+              <div class="slide-dots"></div>
+            </div>
+            <div class="post-body">
+              <span class="post-tag-pill gold">Event</span>
+              <h3><a href="halloween.html">Halloween Outreach</a></h3>
+              <div class="post-meta">Oct 25, 2025</div>
+              <p>The Double Quarter Pounders brought a "spooky" side of STEM to our community's Halloween Trunk-or-Treat — a mobile robotics lab where trick-or-treaters could see a real competition robot.</p>
+              <a class="readmore" href="halloween.html">Read more →</a>
+            </div>
+          </article>
+
+          <article class="post">
+            <div class="post-img post-slideshow" data-current="0">
+              <div class="slide-track">
+                <img src="assets/library/library1.jpg" alt="Library Outreach photo 1">
+                <img src="assets/library/library2.jpg" alt="Library Outreach photo 2">
+                <img src="assets/library/library3.jpg" alt="Library Outreach photo 3">
+                <img src="assets/library/library4.jpg" alt="Library Outreach photo 4">
+                <img src="assets/library/library5.jpg" alt="Library Outreach photo 5">
+                <img src="assets/library/library6.jpg" alt="Library Outreach photo 6">
+                <img src="assets/library/library7.jpg" alt="Library Outreach photo 7">
+                <img src="assets/library/library8.jpg" alt="Library Outreach photo 8">
+              </div>
+              <button class="slide-btn slide-prev" aria-label="Previous photo">&#8249;</button>
+              <button class="slide-btn slide-next" aria-label="Next photo">&#8250;</button>
+              <div class="slide-dots"></div>
+            </div>
+            <div class="post-body">
+              <span class="post-tag-pill cheese">Community</span>
+              <h3><a href="library.html">Outreach in the Library</a></h3>
+              <div class="post-meta">2025 &nbsp;·&nbsp; by Team 23928</div>
+              <p>Double Quarter Pounders headed to the local library to share our passion for engineering — turning a quiet Saturday afternoon into a hands-on exploration of our competition robot.</p>
+              <a class="readmore" href="library.html">Read more →</a>
+            </div>
+          </article>
+
+        </div><!-- /posts -->
+
+        <div class="pager">
+          <a class="btn ghost" href="#">More Updates →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONNECT / CONTACT ── -->
+    <!-- BUG FIX #5: removed duplicate id="contact" from footer; only here -->
+    <section class="connect-section" id="contact">
+      <div class="container connect-inner">
+        <h2>Connect With Our Team</h2>
+        <p class="connect-text">
+          Follow our journey as we inspire future engineers through robotics, STEM education, and community outreach.
+        </p>
+        <div class="social-links">
+          <a href="https://instagram.com/ftcdoublequarterpounders" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram"></i> Instagram
+          </a>
+          <a href="https://m.youtube.com/@dqp23928" target="_blank" rel="noopener">
+            <i class="fa-brands fa-youtube"></i> YouTube
+          </a>
+          <a href="/cdn-cgi/l/email-protection#23504b42544d0d4b466347525311101a111b0d4c5144">
+            <i class="fa-solid fa-envelope"></i> Email Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── DONATE ── -->
+    <section class="section" id="donate">
+      <div class="container">
+        <div class="donate-card">
+          <div>
+            <h2>Support STEM Education</h2>
+            <p>
+              We believe today's students will become tomorrow's engineers, innovators, and leaders. Through robotics, mentorship, and outreach, Double Quarter Pounders works to inspire young minds. With your support, we can expand these opportunities and empower more students to build a brighter future.
+            </p>
+          </div>
+          <div class="donate-actions">
+            <a class="btn primary" href="#"><i class="fa-solid fa-heart"></i>&nbsp; Donate</a>
+            <a class="btn ghost" href="#contact">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="logo small">DQ</span>
+          <div>
+            <div class="footer-title">Double Quarter Pounders • FTC 23928</div>
+            <div class="footer-sub">Built by students. Powered by mentors &amp; sponsors.</div>
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="#top">Home</a>
+          <a href="#achievements">Achievements</a>
+          <a href="#updates">Updates</a>
+          <a href="/cdn-cgi/l/email-protection#f1829990869fdf9994b1958081c3c2c8c3c9df9e8396">Mail</a>
+          <a href="https://instagram.com/ftcdoublequarterpounders" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    const menuBtn  = document.getElementById('menuBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const overlay  = document.getElementById('menuOverlay');
+    const backdrop = document.getElementById('backdrop');
+
+    function openMenu() {
+      overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('no-scroll');
+    }
+    function closeMenu() {
+      overlay.classList.remove('open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('no-scroll');
+    }
+
+    if (menuBtn)  menuBtn.addEventListener('click', openMenu);
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+    if (backdrop) backdrop.addEventListener('click', closeMenu);
+
+    // ── Slideshows ──
+    document.querySelectorAll('.post-slideshow').forEach(function(sl) {
+      const track = sl.querySelector('.slide-track');
+      const imgs  = track.querySelectorAll('img');
+      const dotsEl= sl.querySelector('.slide-dots');
+      const total = imgs.length;
+      let cur = 0;
+
+      // Build dots
+      imgs.forEach(function(_, i) {
+        const d = document.createElement('button');
+        d.className = 'slide-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Go to photo ' + (i+1));
+        d.addEventListener('click', function() { goTo(i); });
+        dotsEl.appendChild(d);
+      });
+
+      function goTo(n) {
+        cur = (n + total) % total;
+        track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+        dotsEl.querySelectorAll('.slide-dot').forEach(function(d, i) {
+          d.classList.toggle('active', i === cur);
+        });
+      }
+
+      sl.querySelector('.slide-prev').addEventListener('click', function() { goTo(cur - 1); });
+      sl.querySelector('.slide-next').addEventListener('click', function() { goTo(cur + 1); });
+
+      // Auto-advance every 4s
+      let timer = setInterval(function() { goTo(cur + 1); }, 4000);
+      sl.addEventListener('mouseenter', function() { clearInterval(timer); });
+      sl.addEventListener('mouseleave', function() { timer = setInterval(function() { goTo(cur + 1); }, 4000); });
+
+      // Touch swipe support
+      let startX = 0;
+      sl.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive:true});
+      sl.addEventListener('touchend',   function(e) {
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) goTo(dx < 0 ? cur + 1 : cur - 1);
+      });
+    });
+
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => { if (el.isIntersecting) el.ta
