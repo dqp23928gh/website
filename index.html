@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Double Quarter Pounders | FTC 23928</title>
+  <meta name="description" content="Double Quarter Pounders (FTC 23928) — FIRST Tech Challenge robotics team based in Northern Virginia." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+
+      <a class="brand" href="#top" aria-label="Double Quarter Pounders home">
+        <div class="logo-ring">
+          <img src="assets/logo.png" alt="Double Quarter Pounders logo"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span class="logo-ring-text" style="display:none;">DQ</span>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">Double Quarter Pounders</div>
+          <div class="brand-sub">FTC Team 23928</div>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#top">Home</a>
+        <a href="#about">About</a>
+        <a href="#success">Competition</a>
+        <a href="#updates">Updates</a>
+        <a href="#contact">Contact</a>
+        <a href="#donate" class="donate-btn">Donate</a>
+      </nav>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false">
+        <span class="menu-icon" aria-hidden="true"></span>
+        Menu
+      </button>
+
+    </div>
+  </header>
+
+
+  <!-- MOBILE OVERLAY MENU -->
+  <div class="overlay" id="menuOverlay" aria-hidden="true">
+    <div class="overlay-panel" role="dialog" aria-modal="true" aria-label="Site navigation">
+
+      <div class="overlay-top">
+        <div class="overlay-brand">
+          <div class="logo-ring" style="width:34px;height:34px;">
+            <img src="assets/logo.png" alt="DQP logo"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="logo-ring-text" style="display:none;">DQ</span>
+          </div>
+          <div>
+            <div class="brand-title">Double Quarter Pounders</div>
+            <div class="brand-sub">FTC 23928</div>
+          </div>
+        </div>
+        <button class="close-btn" id="closeBtn" aria-label="Close menu">Close</button>
+      </div>
+
+      <nav class="overlay-nav" aria-label="Mobile navigation">
+        <a href="#top"       onclick="closeMenu()">Home</a>
+        <a href="#about"     onclick="closeMenu()">About</a>
+        <a href="#success"   onclick="closeMenu()">Competition</a>
+        <a href="#updates"   onclick="closeMenu()">Team Updates</a>
+        <a href="#contact"   onclick="closeMenu()">Contact</a>
+        <a href="#donate"    onclick="closeMenu()" class="nav-cta">Donate</a>
+      </nav>
+
+      <div class="overlay-bottom">
+        <a class="overlay-social" href="https://instagram.com/ftcdoublequarterpounders" target="_blank" rel="noopener">
+          <i class="fa-brands fa-instagram" style="margin-right:4px;"></i> Instagram
+        </a>
+        <a class="overlay-social" href="https://m.youtube.com/@dqp23928" target="_blank" rel="noopener">
+          <i class="fa-brands fa-youtube" style="margin-right:4px;"></i> YouTube
+        </a>
+        <a class="overlay-social" href="mailto:shawn.he@dqp23938.org">
+          <i class="fa-solid fa-envelope" style="margin-right:4px;"></i> Email
+        </a>
+      </div>
+
+    </div>
+    <div class="overlay-backdrop" id="backdrop" aria-hidden="true"></div>
+  </div>
+
+
+  <main>
+
+    <!-- HERO — dark geometric background, no photo behind text -->
+    <section class="hero">
+
+      <div class="hero-graphic" aria-hidden="true">
+        <svg viewBox="0 0 1400 520" preserveAspectRatio="xMidYMid slice"
+             xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;">
+          <defs>
+            <pattern id="hexgrid" x="0" y="0" width="64" height="55" patternUnits="userSpaceOnUse">
+              <polygon points="32,2 62,18 62,50 32,66 2,50 2,18"
+                       fill="none" stroke="rgba(200,146,42,0.11)" stroke-width="1"/>
+            </pattern>
+            <linearGradient id="glowH" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stop-color="rgba(200,146,42,0)"/>
+              <stop offset="35%"  stop-color="rgba(245,200,66,0.55)"/>
+              <stop offset="65%"  stop-color="rgba(245,200,66,0.55)"/>
+              <stop offset="100%" stop-color="rgba(200,146,42,0)"/>
+            </linearGradient>
+            <linearGradient id="glowR" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stop-color="rgba(184,59,42,0)"/>
+              <stop offset="50%"  stop-color="rgba(184,59,42,0.40)"/>
+              <stop offset="100%" stop-color="rgba(184,59,42,0)"/>
+            </linearGradient>
+          </defs>
+          <rect width="1400" height="520" fill="url(#hexgrid)"/>
+          <line x1="0" y1="155" x2="1400" y2="155" stroke="url(#glowH)" stroke-width="1.5"/>
+          <line x1="0" y1="335" x2="1400" y2="335" stroke="url(#glowR)" stroke-width="1"/>
+          <line x1="0" y1="440" x2="1400" y2="440" stroke="url(#glowH)" stroke-width="0.7"/>
+          <line x1="900"  y1="0" x2="900"  y2="520" stroke="rgba(200,146,42,0.09)" stroke-width="1"/>
+          <line x1="1060" y1="0" x2="1060" y2="520" stroke="rgba(200,146,42,0.07)" stroke-width="0.8"/>
+          <line x1="1220" y1="0" x2="1220" y2="520" stroke="rgba(200,146,42,0.05)" stroke-width="0.6"/>
+          <circle cx="900"  cy="155" r="5" fill="rgba(245,200,66,0.55)"/>
+          <circle cx="1060" cy="155" r="3" fill="rgba(245,200,66,0.30)"/>
+          <circle cx="900"  cy="335" r="4" fill="rgba(184,59,42,0.50)"/>
+          <circle cx="1060" cy="335" r="3" fill="rgba(200,146,42,0.30)"/>
+          <circle cx="1220" cy="335" r="3" fill="rgba(245,200,66,0.20)"/>
+          <!-- Large gear, far right -->
+          <circle cx="1250" cy="260" r="145" fill="none" stroke="rgba(200,146,42,0.08)" stroke-width="20"/>
+          <circle cx="1250" cy="260" r="105" fill="none" stroke="rgba(200,146,42,0.06)" stroke-width="8"/>
+          <circle cx="1250" cy="260" r="32"  fill="none" stroke="rgba(200,146,42,0.10)" stroke-width="3"/>
+          <circle cx="1250" cy="260" r="12"  fill="rgba(200,146,42,0.10)"/>
+          <rect x="1237" y="98" width="26" height="22" rx="3" fill="rgba(200,146,42,0.09)" transform="rotate(0,1250,260)"/>
+          <rect x="1237" y="98" width="26" height="22" rx="3" fill="rgba(200,146,42,0.09)" transform="rotate(30,1250,260)"/>
+          <rect x="1237" y="98" width="26" height="22" rx="3" fill="rgba(200,146,42,0.09)" transform="rotate(60,1250,260)"/>
+          <rect x="1237" y="98" width="26" height="22" rx="3" fill="rgba(200,146,42,0.09)" transform="rotate(90,1250,260)"/>
+          <rect x="1237" y="98" width="26" height="22" rx="3" fill="rgba(200,146,42,0.09)" transform="rotate(120,1250,260)"/>
+          <rect x="1237" y="98" width="26" height="22" rx="3" fill="rgba(200,146,42,0.09)" transform="rotate(150,1250,260)"/>
+          <rect x="1237" y="98" width="26" height="22" rx="3" fill="rgba(200,146,42,0.09)" transform="rotate(180,1250,260)"/>
+          <rect x="1237" y="98" width="26" height="22" rx="3" fill="rgba(200,146,42,0.09)" transform="rotate(210,1250,260)"/>
+          <rect x="1237" y="98" width="26" height="22" rx="3" fill="rgba(200,146,42,0.09)" transform="rotate(240,1250,260)"/>
+          <rect x="1237" y="98" width="26" height="22" rx="3" fill="rgba(200,146,42,0.09)" transform="rotate(270,1250,260)"/>
+          <rect x="1237" y="98" width="26" height="22" rx="3" fill="rgba(200,146,42,0.09)" transform="rotate(300,1250,260)"/>
+          <rect x="1237" y="98" width="26" height="22" rx="3" fill="rgba(200,146,42,0.09)" transform="rotate(330,1250,260)"/>
+          <circle cx="1350" cy="95" r="52" fill="none" stroke="rgba(245,200,66,0.07)" stroke-width="9"/>
+          <circle cx="1350" cy="95" r="14" fill="rgba(245,200,66,0.07)"/>
+          <text x="870" y="490" font-family="'Barlow Condensed',sans-serif"
+                font-weight="900" font-size="120" fill="rgba(200,146,42,0.055)" letter-spacing="-2">23928</text>
+        </svg>
+      </div>
+
+      <div class="hero-accent-bar" aria-hidden="true"></div>
+
+      <div class="hero-content container">
+        <p class="hero-eyebrow">
+          <span class="eyebrow-dot" aria-hidden="true"></span>
+          FIRST Tech Challenge &nbsp;&middot;&nbsp; Since 2023
+        </p>
+        <h1>Building robots.<br><em>Building engineers.</em></h1>
+        <p class="hero-lead">
+          We are FTC 23928 — Double Quarter Pounders. A student-led team competing,
+          learning, and giving back through robotics and community outreach.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#donate">Support the Team</a>
+          <a class="btn ghost"   href="#about">Meet the Team</a>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT — team photo + intro, inline (no separate page) -->
+    <div class="section-divider"></div>
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label">The Team</p>
+          <h2>About Us</h2>
+          <p>Student-led, community-driven, competition-ready.</p>
+        </div>
+        <div class="about-inner">
+          <div class="about-photo-wrap">
+            <img src="assets/team.jpg" alt="Double Quarter Pounders — FTC 23928 team photo" class="about-photo">
+            <div class="about-photo-caption">FTC 23928 &nbsp;&middot;&nbsp; 2025–2026 Season &nbsp;&middot;&nbsp; Inspire Award</div>
+          </div>
+          <div class="about-copy">
+            <p>
+              Double Quarter Pounders (FTC 23928) is a student-led FIRST Tech Challenge team based in
+             Northern Virginia, founded in 2023. We design, build, and program competition robots
+              while inspiring the next generation of innovators through hands-on outreach.
+            </p>
+            <p>
+              Through robotics, mentorship, and community events, our students gain real-world engineering
+              experience that develops innovation, leadership, and lifelong learning — on and off the
+              competition field.
+            </p>
+            <a class="btn primary" href="#success" style="margin-top:8px;">See Our Results &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TEAM VIDEO -->
+    <div class="section-divider"></div>
+    <section class="section" id="video">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label">Watch</p>
+          <h2>Team Video</h2>
+          <p>Our season highlight reel.</p>
+        </div>
+        <div class="video-card">
+          <div class="video-ratio">
+            <iframe
+              src="https://www.youtube.com/embed/7xggK4VgOiE"
+              title="Double Quarter Pounders — FTC 23928 Team Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- COMPETITION SUCCESS -->
+    <div class="section-divider"></div>
+    <section class="section" id="success">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label">Results</p>
+          <h2>Competition Success</h2>
+          <p>Recent awards and performance highlights.</p>
+        </div>
+        <div class="cards">
+
+          <article class="card">
+            <div class="award-year">2025 &nbsp;&middot;&nbsp; Richmond, VA Qualifier</div>
+            <div class="award-name">Inspire Award</div>
+            <h3>Richmond, VA Qualifier</h3>
+            <p>Recognized for well-rounded excellence across outreach, engineering mindset, and team culture.</p>
+          </article>
+
+          <article class="card red-top">
+            <div class="award-year">2024 &nbsp;&middot;&nbsp; Carolina Premier</div>
+            <div class="award-name">Winning Alliance Captain</div>
+            <h3>Carolina Premier Event</h3>
+            <p>Alliance Captain — strong strategy, execution, and consistent match performance throughout the event.</p>
+          </article>
+
+          <article class="card green-top">
+            <div class="award-year">2024 &nbsp;&middot;&nbsp; Charlottesville, VA</div>
+            <div class="award-name">Think Award &mdash; 2nd Place</div>
+            <h3>Charlottesville, VA Qualifier</h3>
+            <p>Recognized for our engineering process, detailed documentation, and iterative problem-solving approach.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TEAM UPDATES — each post has a photo slideshow -->
+    <div class="section-divider"></div>
+    <section class="section" id="updates">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label">News</p>
+          <h2>Team Updates</h2>
+          <p>Build season posts, outreach recaps, and announcements.</p>
+        </div>
+
+        <div class="posts">
+
+          <!-- Post 1 — STEAM Night (9 photos) -->
+          <article class="post">
+            <div class="post-img">
+              <div class="slideshow">
+                <div class="slide active"><img src="assets/media/outreach/stream-night/IMG_0948.jpg" alt="STEAM Night photo 1"></div>
+                <div class="slide"><img src="assets/media/outreach/stream-night/IMG_0949.jpg" alt="STEAM Night photo 2"></div>
+                <div class="slide"><img src="assets/media/outreach/stream-night/IMG_0955.jpg" alt="STEAM Night photo 3"></div>
+                <div class="slide"><img src="assets/media/outreach/stream-night/IMG_0966.jpg" alt="STEAM Night photo 4"></div>
+                <div class="slide"><img src="assets/media/outreach/stream-night/IMG_0979.jpg" alt="STEAM Night photo 5"></div>
+                <div class="slide"><img src="assets/media/outreach/stream-night/IMG_1001.jpg" alt="STEAM Night photo 6"></div>
+                <div class="slide"><img src="assets/media/outreach/stream-night/IMG_1018.jpg" alt="STEAM Night photo 7"></div>
+                <div class="slide"><img src="assets/media/outreach/stream-night/IMG_5929.jpg" alt="STEAM Night photo 8"></div>
+                <div class="slide"><img src="assets/media/outreach/stream-night/IMG_5938.jpg" alt="STEAM Night photo 9"></div>
+                <button class="ss-btn ss-prev" aria-label="Previous photo">&#8249;</button>
+                <button class="ss-btn ss-next" aria-label="Next photo">&#8250;</button>
+                <div class="ss-dots"></div>
+              </div>
+              <span class="post-tag">Outreach</span>
+            </div>
+            <div class="post-body">
+              <div class="post-meta">Feb 27, 2026</div>
+              <h3><a href="steam-night.html">STEAM Night at Colvin Run Elementary</a></h3>
+              <p>
+                We brought robotics to life at Colvin Run Elementary's STEAM Night. Students navigated
+                our robot through obstacle courses, grabbed the gamepad, and asked everything about
+                motors and code. No slides — just hands-on excitement.
+              </p>
+              <a class="readmore" href="steam-night.html">Read more &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Post 2 — Halloween (4 photos) -->
+          <article class="post">
+            <div class="post-img">
+              <div class="slideshow">
+                <div class="slide active"><img src="assets/halloween-outreach/halloween-lead.jpg" alt="Halloween Outreach photo 1"></div>
+                <div class="slide"><img src="assets/halloween-outreach/halloween-1.jpg" alt="Halloween Outreach photo 2"></div>
+                <div class="slide"><img src="assets/halloween-outreach/halloween-2.jpg" alt="Halloween Outreach photo 3"></div>
+                <div class="slide"><img src="assets/halloween-outreach/halloween-3.jpg" alt="Halloween Outreach photo 4"></div>
+                <button class="ss-btn ss-prev" aria-label="Previous photo">&#8249;</button>
+                <button class="ss-btn ss-next" aria-label="Next photo">&#8250;</button>
+                <div class="ss-dots"></div>
+              </div>
+              <span class="post-tag">Outreach</span>
+            </div>
+            <div class="post-body">
+              <div class="post-meta">Oct 25, 2025</div>
+              <h3><a href="halloween.html">Halloween Outreach — Trunk-or-Treat</a></h3>
+              <p>
+                We turned our car trunk into a mobile robotics lab. Trick-or-treaters got a hands-on
+                look at our competition robot alongside the candy — Spidermen, pirates, and ninjas all
+                took a turn at the controls.
+              </p>
+              <a class="readmore" href="halloween.html">Read more &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Post 3 — Library (8 photos) -->
+          <article class="post">
+            <div class="post-img">
+              <div class="slideshow">
+                <div class="slide active"><img src="assets/library/library1.jpg" alt="Library Outreach photo 1"></div>
+                <div class="slide"><img src="assets/library/library2.jpg" alt="Library Outreach photo 2"></div>
+                <div class="slide"><img src="assets/library/library3.jpg" alt="Library Outreach photo 3"></div>
+                <div class="slide"><img src="assets/library/library4.jpg" alt="Library Outreach photo 4"></div>
+                <div class="slide"><img src="assets/library/library5.jpg" alt="Library Outreach photo 5"></div>
+                <div class="slide"><img src="assets/library/library6.jpg" alt="Library Outreach photo 6"></div>
+                <div class="slide"><img src="assets/library/library7.jpg" alt="Library Outreach photo 7"></div>
+                <div class="slide"><img src="assets/library/library8.jpg" alt="Library Outreach photo 8"></div>
+                <button class="ss-btn ss-prev" aria-label="Previous photo">&#8249;</button>
+                <button class="ss-btn ss-next" aria-label="Next photo">&#8250;</button>
+                <div class="ss-dots"></div>
+              </div>
+              <span class="post-tag">Outreach</span>
+            </div>
+            <div class="post-body">
+              <div class="post-meta">2025 &nbsp;&middot;&nbsp; Team 23928</div>
+              <h3><a href="library.html">Outreach in the Library</a></h3>
+              <p>
+                We set up a demo station in the library meeting room, turning a quiet Saturday afternoon
+                into a hands-on exploration of how our competition robot actually works — showing the
+                how and why behind every gear and line of code.
+              </p>
+              <a class="readmore" href="library.html">Read more &rarr;</a>
+            </div>
+          </article>
+
+        </div><!-- /posts -->
+
+        <div class="pager">
+          <a class="btn ghost-dark" href="#">More Updates &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CONNECT / SOCIAL -->
+    <section class="connect-section" id="contact">
+      <div class="container">
+        <h2>Connect With Our Team</h2>
+        <p class="connect-text">
+          Follow our journey as we inspire future engineers through robotics,
+          STEM education, and community outreach.
+        </p>
+        <div class="social-links">
+          <a href="https://instagram.com/ftcdoublequarterpounders" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram"></i> Instagram
+          </a>
+          <a href="https://m.youtube.com/@dqp23928" target="_blank" rel="noopener">
+            <i class="fa-brands fa-youtube"></i> YouTube
+          </a>
+          <a href="mailto:shawn.he@dqp23938.org">
+            <i class="fa-solid fa-envelope"></i> Email Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- DONATE -->
+    <div class="section-divider"></div>
+    <section class="section" id="donate">
+      <div class="container">
+        <div class="donate-card">
+          <div>
+            <h2>Support STEM Education</h2>
+            <p>
+              We believe today's students will become tomorrow's engineers, innovators, and leaders.
+              Through robotics, mentorship, and outreach, Double Quarter Pounders works to inspire
+              young minds to explore STEM and develop technologies that make life better for everyone.
+              With your support, we can continue expanding these opportunities and empowering more
+              students to build a brighter future.
+            </p>
+          </div>
+          <div class="donate-actions">
+            <a class="btn primary" href="#">Donate</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer-inner">
+
+        <div class="footer-brand">
+          <div class="footer-logo-ring">
+            <img src="assets/logo.png" alt="DQP logo"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="logo-ring-text" style="display:none;">DQ</span>
+          </div>
+          <div>
+            <div class="footer-title">Double Quarter Pounders &nbsp;&bull;&nbsp; FTC 23928</div>
+            <div class="footer-sub">Built by students. Powered by mentors &amp; sponsors.</div>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <a href="#top">Home</a>
+          <a href="#about">About</a>
+          <a href="#success">Competition</a>
+          <a href="#updates">Updates</a>
+          <a href="mailto:shawn.he@dqp23938.org">Email</a>
+          <a href="https://instagram.com/ftcdoublequarterpounders" target="_blank" rel="noopener">Instagram</a>
+        </div>
+
+      </div>
+    </footer>
+
+  </main>
+
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+
+    /* ── Mobile menu ── */
+    var menuBtn = document.getElementById('menuBtn');
+    var closeBtn = document.getElementById('closeBtn');
+    var overlay  = document.getElementById('menuOverlay');
+    var backdrop = document.getElementById('backdrop');
+
+    function openMenu() {
+      overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden', 'false');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('no-scroll');
+    }
+
+    function closeMenu() {
+      overlay.classList.remove('open');
+      overlay.setAttribute('aria-hidden', 'true');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('no-scroll');
+    }
+
+    if (menuBtn)  menuBtn.addEventListener('click', openMenu);
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+    if (backdrop) backdrop.addEventListener('click', closeMenu);
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeMenu();
+    });
+
+    /* ── Slideshow ──────────────────────────────────
+       Each .slideshow is fully independent:
+       prev/next arrows, dot indicators,
+       auto-advance every 4 s, pause on hover,
+       touch swipe support.
+    ─────────────────────────────────────────────── */
+    function initSlideshow(ssEl) {
+      var slides   = Array.from(ssEl.querySelectorAll('.slide'));
+      var dotsWrap = ssEl.querySelector('.ss-dots');
+      var prevBtn  = ssEl.querySelector('.ss-prev');
+      var nextBtn  = ssEl.querySelector('.ss-next');
+      var current  = 0;
+      var timer;
+
+      if (slides.length <= 1) {
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+        return;
+      }
+
+      /* Build dot buttons */
+      slides.forEach(function(_, i) {
+        var d = document.createElement('button');
+        d.className = 'ss-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Photo ' + (i + 1));
+        d.addEventListener('click', function() { go(i); });
+        dotsWrap.appendChild(d);
+      });
+
+      var dots = Array.from(dotsWrap.querySelectorAll('.ss-dot'));
+
+      function go(n) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (n + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+        resetTimer();
+      }
+
+      function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(function() { go(current + 1); }, 4000);
+      }
+
+      prevBtn.addEventListener('click', function(e) { e.preventDefault(); go(current - 1); });
+      nextBtn.addEventListener('click', function(e) { e.preventDefault(); go(current + 1); });
+
+      ssEl.addEventListener('mouseenter', function() { clearInterval(timer); });
+      ssEl.addEventListener('mouseleave', resetTimer);
+
+      var touchStartX = 0;
+      ssEl.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+      }, { passive: true });
+      ssEl.addEventListener('touchend', function(e) {
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) go(dx < 0 ? current + 1 : current - 1);
+      }, { passive: true });
+
+      resetTimer();
+    }
+
+    document.querySelectorAll('.slideshow').forEach(initSlideshow);
+
+  </script>
+
+</body>
+</html>
