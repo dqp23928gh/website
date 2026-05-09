@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Double Quarter Pounders | FTC 23928</title>
+  <meta name="description" content="Double Quarter Pounders (FTC 23928) — building robots, leaders, and community through FIRST Tech Challenge." />
+
+  <!-- Optional: modern font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* “Double Quarter Pounders” palette (modern + burger-inspired) */
+      --bg: #0e0f12;           /* near-black */
+      --panel: #151722;        /* deep slate */
+      --panel2: #11131b;       /* deeper */
+      --text: #f3f4f6;         /* near-white */
+      --muted: #b8bcc9;        /* muted text */
+
+      --bun: #e2b27b;          /* bun tan */
+      --beef: #6b3f2a;         /* beef brown */
+      --cheese: #f4c430;       /* cheese gold */
+      --ketchup: #ff3b30;      /* accent */
+      --pickle: #7ad86f;       /* optional green highlight */
+
+      --ring: rgba(244,196,48,.35);
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --radius: 18px;
+
+      --max: 1120px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 700px at 15% -10%, rgba(244,196,48,.18), transparent 60%),
+        radial-gradient(900px 500px at 95% 0%, rgba(226,178,123,.10), transparent 55%),
+        radial-gradient(900px 700px at 40% 110%, rgba(255,59,48,.08), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      line-height:1.5;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ opacity:.92; }
+
+    .container{ width:min(var(--max), calc(100% - 48px)); margin:0 auto; }
+
+    /* Top bar */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      background: rgba(14,15,18,.65);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; min-width: 240px;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:12px;
+      background:
+        radial-gradient(12px 12px at 30% 35%, rgba(255,255,255,.35), transparent 60%),
+        linear-gradient(135deg, rgba(244,196,48,.85), rgba(226,178,123,.75));
+      box-shadow: 0 10px 30px rgba(244,196,48,.15);
+      border: 1px solid rgba(255,255,255,.18);
+      display:grid; place-items:center;
+      font-weight:900; color:#1a120b;
+    }
+    .brand h1{
+      margin:0; font-size:14px; line-height:1.1;
+      letter-spacing:.2px;
+    }
+    .brand .sub{
+      display:block; margin-top:2px; font-size:12px; color: var(--muted);
+      font-weight:600;
+    }
+
+    nav ul{
+      list-style:none; margin:0; padding:0;
+      display:flex; align-items:center; gap:18px;
+    }
+    nav a{
+      font-size:13px; font-weight:700;
+      color: rgba(243,244,246,.92);
+      padding:10px 10px;
+      border-radius:12px;
+    }
+    nav a:hover{
+      background: rgba(255,255,255,.06);
+    }
+
+    .cta{
+      display:flex; align-items:center; gap:10px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      font-size:13px; font-weight:800;
+      box-shadow: 0 8px 24px rgba(0,0,0,.25);
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+      cursor:pointer;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
+    .btn.primary{
+      border-color: rgba(244,196,48,.35);
+      background: linear-gradient(135deg, rgba(244,196,48,.95), rgba(226,178,123,.90));
+      color: #1a120b;
+      box-shadow: 0 16px 40px rgba(244,196,48,.18);
+    }
+    .btn.primary:hover{ box-shadow: 0 20px 55px rgba(244,196,48,.22); }
+
+    .hamburger{
+      display:none;
+      width:44px; height:44px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      cursor:pointer;
+    }
+    .hamburger span{
+      display:block; width:18px; height:2px; background: rgba(243,244,246,.9);
+      margin:0 auto;
+      position:relative;
+    }
+    .hamburger span::before,.hamburger span::after{
+      content:""; position:absolute; left:0;
+      width:18px; height:2px; background: rgba(243,244,246,.9);
+    }
+    .hamburger span::before{ top:-6px; }
+    .hamburger span::after{ top:6px; }
+
+    /* Mobile menu */
+    .mobile{
+      display:none;
+      padding: 0 0 16px 0;
+    }
+    .mobile .card{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(21,23,34,.72);
+      box-shadow: var(--shadow);
+      padding: 10px;
+    }
+    .mobile a{
+      display:block;
+      padding: 12px 12px;
+      border-radius: 14px;
+      font-weight:800;
+      color: rgba(243,244,246,.92);
+    }
+    .mobile a:hover{ background: rgba(255,255,255,.06); }
+
+    /* Hero */
+    .hero{
+      padding: 54px 0 22px 0;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+    .heroCard{
+      border-radius: calc(var(--radius) + 6px);
+      border: 1px solid rgba(255,255,255,.10);
+      background:
+        linear-gradient(180deg, rgba(21,23,34,.82), rgba(17,19,27,.75)),
+        radial-gradient(900px 350px at 0% 0%, rgba(244,196,48,.18), transparent 60%),
+        radial-gradient(900px 500px at 100% 0%, rgba(255,59,48,.10), transparent 55%);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+      padding: 28px 28px 24px 28px;
+      min-height: 320px;
+    }
+    .heroCard::after{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(600px 220px at 25% 10%, rgba(244,196,48,.20), transparent 55%),
+        radial-gradient(500px 240px at 85% 15%, rgba(226,178,123,.14), transparent 60%);
+      pointer-events:none;
+      opacity:.8;
+    }
+    .heroInner{ position:relative; z-index:2; }
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: rgba(243,244,246,.92);
+      font-weight:800;
+      font-size: 12px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(135deg, var(--cheese), var(--bun));
+      box-shadow: 0 0 0 6px rgba(244,196,48,.12);
+    }
+    .hero h2{
+      margin: 14px 0 10px 0;
+      font-size: 42px;
+      line-height: 1.02;
+      letter-spacing: -0.8px;
+    }
+    .hero p{
+      margin: 0 0 18px 0;
+      color: rgba(243,244,246,.82);
+      max-width: 58ch;
+      font-size: 15px;
+    }
+    .heroActions{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin-top: 16px;
+    }
+
+    .stats{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+    }
+    .stat{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 12px 12px;
+    }
+    .stat b{ display:block; font-size: 16px; }
+    .stat span{ color: var(--muted); font-weight:700; font-size: 12px; }
+
+    /* Right hero tile (image/preview) */
+    .preview{
+      border-radius: calc(var(--radius) + 6px);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(21,23,34,.72);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+      min-height: 320px;
+    }
+    .preview .img{
+      height: 220px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.0), rgba(14,15,18,.85)),
+        url("assets/hero-robot.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.05) contrast(1.05);
+    }
+    .preview .body{
+      padding: 16px 18px 18px 18px;
+    }
+    .pillRow{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom: 10px; }
+    .pill{
+      font-size: 11px;
+      font-weight: 900;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: rgba(243,244,246,.90);
+    }
+    .pill.gold{ border-color: rgba(244,196,48,.35); background: rgba(244,196,48,.10); }
+    .pill.red{ border-color: rgba(255,59,48,.35); background: rgba(255,59,48,.08); }
+
+    .preview h3{ margin: 6px 0 6px 0; font-size: 16px; }
+    .preview p{ margin:0; color: var(--muted); font-size: 13px; }
+
+    /* Sections */
+    section{ padding: 26px 0; }
+    .sectionTitle{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .sectionTitle h3{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+    .sectionTitle p{
+      margin:0;
+      color: var(--muted);
+      font-weight:700;
+      font-size: 13px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+    }
+    .card{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(21,23,34,.72);
+      box-shadow: 0 10px 30px rgba(0,0,0,.22);
+      overflow:hidden;
+    }
+    .card .thumb{
+      height: 150px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.0), rgba(14,15,18,.90)),
+        url("assets/news-1.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+    .card .content{ padding: 14px 14px 16px 14px; }
+    .meta{
+      display:flex; gap:10px; flex-wrap:wrap;
+      align-items:center;
+      color: rgba(243,244,246,.78);
+      font-size: 12px;
+      font-weight:800;
+      margin-bottom: 8px;
+    }
+    .meta .tag{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+    .meta .tag.gold{ border-color: rgba(244,196,48,.30); background: rgba(244,196,48,.10); color: rgba(244,196,48,.95); }
+    .meta .tag.green{ border-color: rgba(122,216,111,.28); background: rgba(122,216,111,.10); color: rgba(122,216,111,.92); }
+    .meta .tag.red{ border-color: rgba(255,59,48,.28); background: rgba(255,59,48,.08); color: rgba(255,59,48,.92); }
+
+    .card h4{ margin: 0 0 6px 0; font-size: 15px; letter-spacing:-0.2px; }
+    .card p{ margin:0; color: var(--muted); font-size: 13px; }
+    .card .link{
+      margin-top: 12px;
+      display:inline-flex; gap:10px; align-items:center;
+      font-weight:900; font-size: 13px;
+      color: rgba(244,196,48,.95);
+    }
+
+    /* Quote band */
+    .quote{
+      margin: 18px 0 0 0;
+      border-radius: calc(var(--radius) + 6px);
+      border: 1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(900px 400px at 20% 0%, rgba(244,196,48,.16), transparent 60%),
+        radial-gradient(900px 400px at 90% 30%, rgba(255,59,48,.10), transparent 55%),
+        rgba(21,23,34,.72);
+      box-shadow: var(--shadow);
+      padding: 22px 22px;
+    }
+    .quote blockquote{
+      margin:0;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+      color: rgba(243,244,246,.92);
+    }
+    .quote small{
+      display:block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-weight:800;
+    }
+
+    /* Footer */
+    footer{
+      padding: 26px 0 42px 0;
+      border-top: 1px solid rgba(255,255,255,.08);
+      margin-top: 30px;
+    }
+    .footerGrid{
+      display:grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 18px;
+    }
+    .footerGrid h5{ margin:0 0 10px 0; font-size: 13px; letter-spacing:.2px; }
+    .footerGrid a{
+      display:block;
+      color: rgba(243,244,246,.86);
+      font-weight:800;
+      font-size: 13px;
+      padding: 7px 0;
+    }
+    .footerGrid a:hover{ color: rgba(244,196,48,.95); }
+    .fineprint{
+      margin-top: 18px;
+      color: rgba(184,188,201,.85);
+      font-size: 12px;
+      font-weight:700;
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .heroGrid{ grid-template-columns: 1fr; }
+      nav ul{ display:none; }
+      .hamburger{ display:inline-grid; place-items:center; }
+      .mobile.show{ display:block; }
+      .grid{ grid-template-columns: 1fr; }
+      .footerGrid{ grid-template-columns: 1fr; }
+      .hero h2{ font-size: 36px; }
+      .brand{ min-width:auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Double Quarter Pounders Home">
+          <div class="logo">DQ</div>
+          <div>
+            <h1>Double Quarter Pounders</h1>
+            <span class="sub">FTC 23928 • Great Falls, VA</span>
+          </div>
+        </a>
+
+        <nav aria-label="Primary navigation">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#robot">Robot</a></li>
+            <li><a href="#outreach">Outreach</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#support">Donate</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="cta">
+          <a class="btn" href="#news">Team Updates</a>
+          <a class="btn primary" href="#support">Donate</a>
+          <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile" id="mobileMenu">
+        <div class="card">
+          <a href="#about">About</a>
+          <a href="#robot">Robot</a>
+          <a href="#outreach">Outreach</a>
+          <a href="#news">News</a>
+          <a href="#support">Donate</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="heroGrid">
+          <div class="heroCard">
+            <div class="heroInner">
+              <div class="kicker"><span class="dot"></span> FIRST Tech Challenge • Building bold, building together</div>
+              <h2>We’re FTC 23928 — Double Quarter Pounders.</h2>
+              <p>
+                We design, build, and program competition robots — and we use STEM to serve our community through
+                outreach, mentoring, and hands-on learning.
+              </p>
+
+              <div class="heroActions">
+                <a class="btn primary" href="#support">Support the Team</a>
+                <a class="btn" href="#about">Meet the Team</a>
+                <a class="btn" href="#news">Read Updates</a>
+              </div>
+
+              <div class="stats" aria-label="Team highlights">
+                <div class="stat">
+                  <b>2025–2026</b>
+                  <span>Season: DECODE</span>
+                </div>
+                <div class="stat">
+                  <b>Outreach</b>
+                  <span>Workshops • Demos • Mentoring</span>
+                </div>
+                <div class="stat">
+                  <b>Build Focus</b>
+                  <span>Reliability • Speed • Strategy</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="preview" aria-label="Season spotlight">
+            <div class="img" role="img" aria-label="Robot action photo"></div>
+            <div class="body">
+              <div class="pillRow">
+                <span class="pill gold">Bun-to-Beef Engineering</span>
+                <span class="pill red">Clutch Endgame</span>
+                <span class="pill">Student-led</span>
+              </div>
+              <h3>Season Spotlight</h3>
+              <p>
+                Add a short highlight here — your newest robot iteration, a qualifier result, or a big outreach win.
+              </p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="quote">
+          <blockquote>
+            “FIRST is more than robots. The robots are a vehicle for students to learn important life skills.”
+          </blockquote>
+          <small>— Dean Kamen, Founder of FIRST</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="sectionTitle">
+          <div>
+            <h3>About</h3>
+            <p>Who we are, what we do, and why it matters.</p>
+          </div>
+          <a class="btn" href="#contact">Join / Connect</a>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="thumb" style="background-image:
+              linear-gradient(180deg, rgba(0,0,0,.0), rgba(14,15,18,.90)),
+              url('assets/about-1.jpg');"></div>
+            <div class="content">
+              <div class="meta">
+                <span class="tag gold">Mission</span>
+                <span class="tag">FTC 23928</span>
+              </div>
+              <h4>Engineering + leadership, every week.</h4>
+              <p>We learn by doing: CAD, fabrication, programming, strategy, and documentation — as a team.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb" style="background-image:
+              linear-gradient(180deg, rgba(0,0,0,.0), rgba(14,15,18,.90)),
+              url('assets/about-2.jpg');"></div>
+            <div class="content">
+              <div class="meta">
+                <span class="tag green">Community</span>
+                <span class="tag">Mentoring</span>
+              </div>
+              <h4>We grow STEM access.</h4>
+              <p>Workshops, school demos, mentoring younger teams, and helping new students enter robotics.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb" style="background-image:
+              linear-gradient(180deg, rgba(0,0,0,.0), rgba(14,15,18,.90)),
+              url('assets/about-3.jpg');"></div>
+            <div class="content">
+              <div class="meta">
+                <span class="tag red">Values</span>
+                <span class="tag">Gracious Professionalism</span>
+              </div>
+              <h4>Compete hard. Help harder.</h4>
+              <p>We love match strategy — and we love collaborating, sharing code, and cheering other teams on.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROBOT -->
+    <section id="robot">
+      <div class="container">
+        <div class="sectionTitle">
+          <div>
+            <h3>Robot</h3>
+            <p>Design notes, capabilities, and what we’re improving.</p>
+          </div>
+          <a class="btn" href="#support">Sponsor the build</a>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="thumb" style="background-image:
+              linear-gradient(180deg, rgba(0,0,0,.0), rgba(14,15,18,.90)),
+              url('assets/robot-1.jpg');"></div>
+            <div class="content">
+              <div class="meta">
+                <span class="tag gold">Drive</span>
+                <span class="tag">Consistency</span>
+              </div>
+              <h4>Drivetrain</h4>
+              <p>Put a short description: mecanum/traction, tuning priorities, and reliability improvements.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb" style="background-image:
+              linear-gradient(180deg, rgba(0,0,0,.0), rgba(14,15,18,.90)),
+              url('assets/robot-2.jpg');"></div>
+            <div class="content">
+              <div class="meta">
+                <span class="tag green">Auto</span>
+                <span class="tag">Vision</span>
+              </div>
+              <h4>Autonomous</h4>
+              <p>Highlight your auto approach: sensors, AprilTags, pathing, and cycle goals.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb" style="background-image:
+              linear-gradient(180deg, rgba(0,0,0,.0), rgba(14,15,18,.90)),
+              url('assets/robot-3.jpg');"></div>
+            <div class="content">
+              <div class="meta">
+                <span class="tag red">Endgame</span>
+                <span class="tag">Clutch</span>
+              </div>
+              <h4>Endgame</h4>
+              <p>Explain your endgame plan and what makes it dependable under pressure.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTREACH -->
+    <section id="outreach">
+      <div class="container">
+        <div class="sectionTitle">
+          <div>
+            <h3>Outreach</h3>
+            <p>Events, impact, and ways we support other teams.</p>
+          </div>
+          <a class="btn" href="#contact">Invite us</a>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="thumb" style="background-image:
+              linear-gradient(180deg, rgba(0,0,0,.0), rgba(14,15,18,.90)),
+              url('assets/outreach-1.jpg');"></div>
+            <div class="content">
+              <div class="meta">
+                <span class="tag green">Workshops</span>
+                <span class="tag">STEM Night</span>
+              </div>
+              <h4>Hands-on demos</h4>
+              <p>Run interactive stations: drivetrains, sensors, CAD basics, and programming mini-challenges.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb" style="background-image:
+              linear-gradient(180deg, rgba(0,0,0,.0), rgba(14,15,18,.90)),
+              url('assets/outreach-2.jpg');"></div>
+            <div class="content">
+              <div class="meta">
+                <span class="tag gold">Mentoring</span>
+                <span class="tag">FLL/FTC</span>
+              </div>
+              <h4>Team mentoring</h4>
+              <p>We share tools, review designs, and help newer teams level up — collaboration first.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb" style="background-image:
+              linear-gradient(180deg, rgba(0,0,0,.0), rgba(14,15,18,.90)),
+              url('assets/outreach-3.jpg');"></div>
+            <div class="content">
+              <div class="meta">
+                <span class="tag red">Advocacy</span>
+                <span class="tag">Community</span>
+              </div>
+              <h4>Growing STEM access</h4>
+              <p>Partnerships, sponsorships, and outreach planning that brings robotics to more students.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS / UPDATES -->
+    <section id="news">
+      <div class="container">
+        <div class="sectionTitle">
+          <div>
+            <h3>Team Updates</h3>
+            <p>Short posts like qualifiers, builds, and outreach wins.</p>
+          </div>
+          <a class="btn" href="#contact">Submit a story</a>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="thumb" style="background-image:
+              linear-gradient(180deg, rgba(0,0,0,.0), rgba(14,15,18,.90)),
+              url('assets/news-1.jpg');"></div>
+            <div class="content">
+              <div class="meta">
+                <span class="tag gold">Competition</span>
+                <span class="tag">Mar 2026</span>
+              </div>
+              <h4>Qualifier Recap</h4>
+              <p>Add a 2–3 sentence preview. Link to a longer post or a Google Doc if you want.</p>
+              <a class="link" href="#">Read more →</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb" style="background-image:
+              linear-gradient(180deg, rgba(0,0,0,.0), rgba(14,15,18,.90)),
+              url('assets/news-2.jpg');"></div>
+            <div class="content">
+              <div class="meta">
+                <span class="tag green">Outreach</span>
+                <span class="tag">Workshop</span>
+              </div>
+              <h4>Community STEM Night</h4>
+              <p>Describe what you taught, how many students you reached, and what you’re doing next.</p>
+              <a class="link" href="#">Read more →</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb" style="background-image:
+              linear-gradient(180deg, rgba(0,0,0,.0), rgba(14,15,18,.90)),
+              url('assets/news-3.jpg');"></div>
+            <div class="content">
+              <div class="meta">
+                <span class="tag red">Build</span>
+                <span class="tag">Iteration</span>
+              </div>
+              <h4>Robot V2 Improvements</h4>
+              <p>Share what changed: mechanism reliability, driver practice results, auto consistency, etc.</p>
+              <a class="link" href="#">Read more →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUPPORT / DONATE -->
+    <section id="support">
+      <div class="container">
+        <div class="sectionTitle">
+          <div>
+            <h3>Support the Team</h3>
+            <p>Sponsors help fund parts, event fees, outreach kits, and travel.</p>
+          </div>
+        </div>
+
+        <div class="card" style="padding: 18px;">
+          <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+            <div style="max-width: 70ch;">
+              <h4 style="margin:0 0 8px 0;">Become a sponsor</h4>
+              <p style="margin:0; color: var(--muted); font-size: 13px;">
+                Add your sponsorship tiers here (e.g., Cheese / Double / Deluxe), what sponsors receive, and how to donate.
+              </p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="btn primary" href="#">Donate Now</a>
+              <a class="btn" href="#">Supporters</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="sectionTitle">
+          <div>
+            <h3>Contact</h3>
+            <p>Invite us to an event, ask about sponsorship, or join the team.</p>
+          </div>
+        </div>
+
+        <div class="grid" style="grid-template-columns: 1.2fr .8fr .8fr;">
+          <div class="card" style="padding: 16px;">
+            <h4 style="margin:0 0 8px 0;">Email</h4>
+            <p style="margin:0; color: var(--muted); font-size: 13px;">
+              <b style="color: rgba(243,244,246,.92);">team23928@example.com</b><br/>
+              (Replace with your real team email.)
+            </p>
+            <div style="height: 10px;"></div>
+            <h4 style="margin:0 0 8px 0;">Location</h4>
+            <p style="margin:0; color: var(--muted); font-size: 13px;">
+              Great Falls, VA (update as needed)
+            </p>
+          </div>
+
+          <div class="card" style="padding: 16px;">
+            <h4 style="margin:0 0 8px 0;">Social</h4>
+            <a class="btn" style="width:100%; justify-content:center; margin-bottom:10px;" href="#" rel="noopener">Instagram</a>
+            <a class="btn" style="width:100%; justify-content:center;" href="#" rel="noopener">YouTube</a>
+          </div>
+
+          <div class="card" style="padding: 16px;">
+            <h4 style="margin:0 0 8px 0;">Quick Links</h4>
+            <a class="btn" style="width:100%; justify-content:center; margin-bottom:10px;" href="#">Engineering Portfolio</a>
+            <a class="btn" style="width:100%; justify-content:center;" href="#">Media Kit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footerGrid">
+        <div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div class="logo">DQ</div>
+            <div>
+              <h5 style="margin:0;">Double Quarter Pounders</h5>
+              <div style="color: var(--muted); font-weight:800; font-size:12px;">FIRST Tech Challenge • FTC 23928</div>
+            </div>
+          </div>
+          <div class="fineprint">
+            © <span id="year"></span> Double Quarter Pounders. Built by students. Powered by mentors and sponsors.
+          </div>
+        </div>
+
+        <div>
+          <h5>Explore</h5>
+          <a href="#about">About</a>
+          <a href="#robot">Robot</a>
+          <a href="#outreach">Outreach</a>
+          <a href="#news">News</a>
+        </div>
+
+        <div>
+          <h5>Support</h5>
+          <a href="#support">Donate</a>
+          <a href="#">Supporters</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle + current year
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('show');
+      btn.setAttribute('aria-expanded', String(isOpen));
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

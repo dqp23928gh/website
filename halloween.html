@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Halloween Outreach | Double Quarter Pounders</title>
+  <meta name="description" content="FTC 23928 Halloween Trunk-or-Treat outreach recap." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .post-page { padding: 3rem 0 5rem; }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: gap .2s, color .15s;
+    }
+    .back-link:hover { gap: .7rem; color: var(--red); }
+
+    .post-header { margin-bottom: 2rem; }
+
+    .post-tag-label {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      background: var(--beef);
+      color: var(--gold-light);
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: .9rem;
+    }
+
+    .post-header h1 {
+      font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.05;
+      color: var(--beef);
+      letter-spacing: .5px;
+      margin: 0 0 .6rem;
+    }
+
+    .post-date {
+      font-family: 'DM Sans', sans-serif;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .post-hero-img {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      margin-bottom: 2.5rem;
+      display: block;
+      border: 1px solid var(--border);
+    }
+
+    .post-content { max-width: 720px; }
+    .post-content p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 1.3rem;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 3rem 0;
+    }
+
+    .album-section { margin-top: 2rem; }
+    .album-section h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--beef);
+      margin-bottom: .3rem;
+    }
+    .album-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: .85rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .photo-slot {
+      aspect-ratio: 4/3;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--cream-dark);
+      border: 1px solid var(--border);
+    }
+
+    .photo-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .3s ease;
+    }
+
+    .photo-slot:hover img { transform: scale(1.04); }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER — matches index.html exactly -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a class="brand" href="index.html" aria-label="Double Quarter Pounders home">
+        <div class="logo-ring">
+          <img src="assets/logo.png" alt="Double Quarter Pounders logo"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span class="logo-ring-text" style="display:none;">DQ</span>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">Double Quarter Pounders</div>
+          <div class="brand-sub">FTC Team 23928</div>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#success">Competition</a>
+        <a href="index.html#updates">Updates</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#donate" class="donate-btn">Donate</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+    <section class="post-page">
+      <div class="container">
+
+        <a class="back-link" href="index.html#updates">&larr; Back to Team Updates</a>
+
+        <div class="post-header">
+          <div class="post-tag-label">Outreach</div>
+          <h1>Halloween Outreach — Trunk-or-Treat</h1>
+          <div class="post-date">October 25, 2025 &nbsp;&middot;&nbsp; Team 23928</div>
+        </div>
+
+        <img
+          class="post-hero-img"
+          src="assets/halloween-outreach/halloween-lead.jpg"
+          alt="Double Quarter Pounders at Halloween Trunk-or-Treat"
+        />
+
+        <div class="post-content">
+          <p>
+            On October 25, 2025, Double Quarter Pounders (FTC 23928) brought a "spooky" side of STEM
+            to our local community's Halloween Trunk-or-Treat. Our team transformed our car trunk into
+            a mobile robotics lab, creating an interactive station where trick-or-treaters could take a
+            break from the candy hunt to see a competition-grade robot in action.
+          </p>
+          <p>
+            Sporting our signature hamburger hats, we welcomed a parade of Spidermen, pirates, and ninjas
+            to get a hands-on look at our engineering process. We showcased our journey through a detailed
+            display board — highlighting our progression from Version 1.0 to 3.0 — and answered questions
+            about how motors, sensors, and code come together to make the robot move. It was the best kind
+            of outreach: high-energy, unscripted, and fueled by a mix of curiosity and Starbursts.
+          </p>
+          <p>
+            Seeing the kids' eyes light up as they watched the robot maneuver was a great reminder of why
+            we do this. For us, the event wasn't just about handing out treats — it was about showing the
+            next generation that building robots is just as exciting as any Halloween costume.
+          </p>
+          <p>
+            Events like this allow us to bring FIRST Tech Challenge out of the workshop and into the heart
+            of our community. We had an incredible time sharing our passion for robotics with so many
+            families, and we're already thinking of ways to make our trunk even more "high-tech" next year.
+          </p>
+        </div>
+
+        <hr class="divider">
+
+        <div class="album-section">
+          <h2>Photo Album</h2>
+          <p class="album-sub">Photos from the event.</p>
+          <div class="photo-grid">
+            <div class="photo-slot"><img src="assets/halloween-outreach/halloween-lead.jpg" alt="Halloween Outreach photo 1"></div>
+            <div class="photo-slot"><img src="assets/halloween-outreach/halloween-1.jpg" alt="Halloween Outreach photo 2"></div>
+            <div class="photo-slot"><img src="assets/halloween-outreach/halloween-2.jpg" alt="Halloween Outreach photo 3"></div>
+            <div class="photo-slot"><img src="assets/halloween-outreach/halloween-3.jpg" alt="Halloween Outreach photo 4"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-ring">
+          <img src="assets/logo.png" alt="DQP logo"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span class="logo-ring-text" style="display:none;">DQ</span>
+        </div>
+        <div>
+          <div class="footer-title">Double Quarter Pounders &nbsp;&bull;&nbsp; FTC 23928</div>
+          <div class="footer-sub">Built by students. Powered by mentors &amp; sponsors.</div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#success">Competition</a>
+        <a href="index.html#updates">Updates</a>
+        <a href="mailto:shawn.he@dqp23938.org">Email</a>
+        <a href="https://instagram.com/ftcdoublequarterpounders" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

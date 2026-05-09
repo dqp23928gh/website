@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us | Double Quarter Pounders</title>
+  <meta name="description" content="Learn about FTC Team 23928 — Double Quarter Pounders. Our team, our mission, and our story." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ── Page shell ── */
+    .about-page { padding: 3rem 0 6rem; }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--accent, #e8272b);
+      text-decoration: none;
+      margin-bottom: 2.2rem;
+      transition: gap .2s;
+    }
+    .back-link:hover { gap: .7rem; }
+
+    /* ── Page header ── */
+    .about-header { margin-bottom: 2.5rem; }
+    .about-header .tag { margin-bottom: .8rem; }
+    .about-header h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin: 0 0 .6rem;
+    }
+    .about-header .about-sub {
+      font-size: 1.05rem;
+      color: #666;
+      font-weight: 600;
+      max-width: 560px;
+    }
+
+    /* ── Hero team photo ── */
+    .about-hero-img {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+      margin-bottom: .9rem;
+    }
+    .about-hero-placeholder {
+      width: 100%;
+      height: 340px;
+      border-radius: 14px;
+      background: #f2f2f2;
+      border: 2px dashed #ddd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      color: #aaa;
+      font-size: .9rem;
+      font-weight: 600;
+      margin-bottom: .9rem;
+    }
+    .about-hero-placeholder i { font-size: 2.5rem; opacity: .4; }
+    .hero-caption {
+      font-size: .82rem;
+      color: #aaa;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      letter-spacing: .03em;
+    }
+
+    /* ── Section block ── */
+    .about-section { margin-top: 3.5rem; max-width: 760px; }
+    .about-section h2 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: .3rem;
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+    }
+    .about-section h2 i { color: var(--accent, #e8272b); font-size: 1.1rem; }
+    .about-section .section-sub {
+      font-size: .85rem;
+      color: #999;
+      font-weight: 600;
+      letter-spacing: .04em;
+      margin-bottom: 1.2rem;
+    }
+    .about-section p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #333;
+      margin-bottom: 1.3rem;
+    }
+
+    .divider { border: none; border-top: 1px solid #eee; margin: 3rem 0; }
+
+    /* ── Who We Are blurb box ── */
+    .who-box {
+      background: #fafafa;
+      border-left: 4px solid var(--accent, #e89427);
+      border-radius: 0 12px 12px 0;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1.4rem;
+    }
+    .who-box p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #333;
+      margin: 0;
+    }
+
+
+    /* ── Season timeline ── */
+    .timeline { list-style: none; padding: 0; margin: 1.4rem 0; position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 1.05rem;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: #eee;
+    }
+    .timeline li {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      padding: 0 0 1.8rem 0;
+      position: relative;
+    }
+    .tl-dot {
+      flex-shrink: 0;
+      width: 2.1rem; height: 2.1rem;
+      border-radius: 50%;
+      background: var(--accent, #e8272b);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 800;
+      position: relative;
+      z-index: 1;
+    }
+    .tl-body { padding-top: .15rem; }
+    .tl-date {
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: .25rem;
+    }
+    .tl-event {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: .2rem;
+    }
+    .tl-result {
+      font-size: .9rem;
+      color: #555;
+      line-height: 1.55;
+    }
+    .tl-result .badge {
+      display: inline-block;
+      background: #fff4e6;
+      color: #c07000;
+      font-size: .75rem;
+      font-weight: 800;
+      padding: .15rem .55rem;
+      border-radius: 20px;
+      margin-top: .3rem;
+    }
+    .tl-result .badge.green { background: #e6f9ef; color: #1a7a3f; }
+    .tl-result .badge.blue  { background: #e6f0ff; color: #1a4aaa; }
+
+
+    /* ── Team member grid ── */
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+      gap: 1.1rem;
+      margin: 1.4rem 0;
+    }
+    .member-card {
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: center;
+    }
+    .member-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #f2f2f2;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ccc;
+      font-size: 2rem;
+    }
+    .member-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .member-info { padding: .75rem .6rem .9rem; }
+    .member-name {
+      font-size: .9rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: .2rem;
+    }
+    .member-grade {
+      font-size: .75rem;
+      color: #aaa;
+      font-weight: 600;
+      margin-bottom: .25rem;
+    }
+    .member-role {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--accent, #e8272b);
+    }
+
+    /* ── Mentor grid (wider cards) ── */
+    .mentor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.1rem;
+      margin: 1.4rem 0;
+    }
+    .mentor-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .mentor-photo {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #f2f2f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ccc;
+      font-size: 2rem;
+      border-bottom: 1px solid #eee;
+    }
+    .mentor-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .mentor-info { padding: .9rem 1rem 1rem; }
+    .mentor-name {
+      font-size: .95rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: .2rem;
+    }
+    .mentor-title {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--accent, #e8272b);
+      margin-bottom: .4rem;
+    }
+    .mentor-bio {
+      font-size: .83rem;
+      color: #777;
+      line-height: 1.6;
+    }
+
+    /* ── Outreach highlights ── */
+    .outreach-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0;
+    }
+    .outreach-list li {
+      display: flex;
+      gap: .9rem;
+      align-items: flex-start;
+      padding: .7rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.6;
+    }
+    .outreach-list li:last-child { border-bottom: none; }
+    .outreach-list li i {
+      flex-shrink: 0;
+      margin-top: .2rem;
+      color: var(--accent, #e8272b);
+      font-size: .95rem;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="container top-brand-row">
+      <div class="brand">
+        <img src="assets/logo.png" class="team-logo" alt="Double Quarter Pounders logo">
+        <div class="brand-text">
+          <div class="brand-title">Double Quarter Pounders</div>
+          <div class="brand-sub">FTC 23928 since 2023</div>
+        </div>
+      </div>
+    </div>
+    <div class="menu-bar">
+      <div class="container menu-inner">
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="index.html#success">Competition Success</a>
+          <a href="index.html#updates">Team Updates</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="index.html#donate" class="donate-btn">Donate</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="about-page">
+      <div class="container">
+
+        <a class="back-link" href="index.html">← Back to Home</a>
+
+        <!-- ── Page Header ── -->
+        <div class="about-header">
+          <span class="tag gold">About</span>
+          <h1>About Us</h1>
+          <p class="about-sub">Meet the people, the mission, and the story behind FTC Team 23928.</p>
+        </div>
+
+        <!-- ── Team Hero Photo ── -->
+        <!--
+          ✏️ Replace the placeholder below with your team photo:
+          <img class="about-hero-img" src="assets/team.jpg" alt="Double Quarter Pounders team photo" />
+        -->
+        <div class="about-hero-placeholder">
+          <i class="fa-regular fa-image"></i>
+          <span>Add team photo here</span>
+        </div>
+        <p class="hero-caption">Add a caption here</p>
+
+        <hr class="divider">
+
+        <!-- ── 1. WHO WE ARE ── -->
+        <div class="about-section">
+          <h2><i class="fa-solid fa-users"></i> Who We Are</h2>
+          <p class="section-sub">Our team, our mission, our community.</p>
+
+          <div class="who-box">
+            <p>
+              Double Quarter Pounders (FTC 23928) is a student-led FIRST Tech Challenge robotics team based in [City], Virginia, founded in 2023. United by a passion for engineering and community, we design, build, and program competition robots while inspiring the next generation of innovators through outreach.
+            </p>
+          </div>
+
+        </div>
+
+        <hr class="divider">
+
+        <!-- ── 2. SEASON IN REVIEW / TIMELINE ── -->
+        <div class="about-section">
+          <h2><i class="fa-solid fa-calendar-days"></i> Season In Review</h2>
+          <p class="section-sub">Key events and results from our most recent season.</p>
+
+          <ul class="timeline">
+
+            <li>
+              <div class="tl-dot"><i class="fa-solid fa-flag"></i></div>
+              <div class="tl-body">
+                <div class="tl-date">Month, Year</div>
+                <div class="tl-event">Event Name (e.g. Kickoff / Scrimmage)</div>
+                <div class="tl-result">
+                  Brief result or outcome.<br>
+                  <span class="badge">Award or placement</span>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="tl-dot"><i class="fa-solid fa-trophy"></i></div>
+              <div class="tl-body">
+                <div class="tl-date">Month, Year</div>
+                <div class="tl-event">Regional Qualifier Name</div>
+                <div class="tl-result">
+                  Brief result or outcome.<br>
+                  <span class="badge green">Qualified for States!</span>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="tl-dot"><i class="fa-solid fa-star"></i></div>
+              <div class="tl-body">
+                <div class="tl-date">Month, Year</div>
+                <div class="tl-event">State / League Championship</div>
+                <div class="tl-result">
+                  Brief result or outcome.<br>
+                  <span class="badge blue">Award name</span>
+                </div>
+              </div>
+            </li>
+
+            <!-- ✏️ Duplicate a <li> block to add more events -->
+
+          </ul>
+        </div>
+
+        <!-- ── 4. TEAM MEMBERS ── -->
+        <div class="about-section" style="max-width:100%;">
+          <h2><i class="fa-solid fa-id-badge"></i> Team Members</h2>
+          <p class="section-sub">The students behind the robot — 2026</p>
+          <p style="font-size:.95rem;color:#555;margin-bottom:1.6rem;">
+            how many members are on the team this season and what grade levels are represented.
+          </p>
+
+          <div class="member-grid">
+
+            <!-- ✏️ Copy this block for each team member.
+                 Replace photo placeholder with:
+                 <img src="assets/members/name.jpg" alt="Member Name" />
+            -->
+
+            <div class="member-card">
+              <div class="member-photo"><i class="fa-regular fa-user"></i></div>
+              <div class="member-info">
+                <div class="member-name">First Last</div>
+                <div class="member-grade">Grade</div>
+                <div class="member-role">Role</div>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="member-photo"><i class="fa-regular fa-user"></i></div>
+              <div class="member-info">
+                <div class="member-name">First Last</div>
+                <div class="member-grade">Grade</div>
+                <div class="member-role">Role</div>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="member-photo"><i class="fa-regular fa-user"></i></div>
+              <div class="member-info">
+                <div class="member-name">First Last</div>
+                <div class="member-grade">Grade</div>
+                <div class="member-role">Role</div>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="member-photo"><i class="fa-regular fa-user"></i></div>
+              <div class="member-info">
+                <div class="member-name">First Last</div>
+                <div class="member-grade">Grade</div>
+                <div class="member-role">Role</div>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="member-photo"><i class="fa-regular fa-user"></i></div>
+              <div class="member-info">
+                <div class="member-name">First Last</div>
+                <div class="member-grade">Grade</div>
+                <div class="member-role">Role</div>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="member-photo"><i class="fa-regular fa-user"></i></div>
+              <div class="member-info">
+                <div class="member-name">First Last</div>
+                <div class="member-grade">Grade</div>
+                <div class="member-role">Role</div>
+              </div>
+            </div>
+
+            <!-- ✏️ Add more member cards as needed -->
+
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- ── 5. COACHES & MENTORS ── -->
+        <div class="about-section" style="max-width:100%;">
+          <h2><i class="fa-solid fa-chalkboard-user"></i> Coaches &amp; Mentors</h2>
+          <p class="section-sub">The adults who guide, challenge, and support our team.</p>
+
+          <div class="mentor-grid">
+
+            <!-- ✏️ Copy this block for each mentor/coach.
+                 Replace photo placeholder with:
+                 <img src="assets/mentors/name.jpg" alt="Mentor Name" />
+            -->
+
+            <div class="mentor-card">
+              <div class="mentor-photo"><i class="fa-regular fa-user"></i></div>
+              <div class="mentor-info">
+                <div class="mentor-name">First Last</div>
+                <div class="mentor-title">Head Coach</div>
+                <div class="mentor-bio">✏️ Short bio — background, profession, and what they bring to the team.</div>
+              </div>
+            </div>
+
+            <div class="mentor-card">
+              <div class="mentor-photo"><i class="fa-regular fa-user"></i></div>
+              <div class="mentor-info">
+                <div class="mentor-name">First Last</div>
+                <div class="mentor-title">Coach</div>
+                <div class="mentor-bio">✏️ Short bio — background, profession, and what they bring to the team.</div>
+              </div>
+            </div>
+
+            <div class="mentor-card">
+              <div class="mentor-photo"><i class="fa-regular fa-user"></i></div>
+              <div class="mentor-info">
+                <div class="mentor-name">First Last</div>
+                <div class="mentor-title">Technical Mentor</div>
+                <div class="mentor-bio">✏️ Short bio — background, profession, and what they bring to the team.</div>
+              </div>
+            </div>
+
+            <!-- ✏️ Add more mentor cards as needed -->
+
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- ── 6. OUTREACH HIGHLIGHTS ── -->
+        <div class="about-section">
+          <h2><i class="fa-solid fa-bullhorn"></i> Outreach Highlights</h2>
+          <p class="section-sub">How we give back and grow the STEM community around us.</p>
+
+          <p>
+            Write 1–2 sentences framing your outreach philosophy — why you do it and who you aim to reach.
+          </p>
+
+          <ul class="outreach-list">
+            <li>
+              <i class="fa-solid fa-check-circle"></i>
+              Outreach event name — brief description of what happened and who attended.
+            </li>
+            <li>
+              <i class="fa-solid fa-check-circle"></i>
+              Outreach event name — e.g. "Library Robot Demo — introduced 40+ kids to our competition robot."
+            </li>
+            <li>
+              <i class="fa-solid fa-check-circle"></i>
+              Outreach event name — e.g. "Halloween Trunk-or-Treat — brought a mobile robotics station to our neighborhood event."
+            </li>
+            <li>
+              <i class="fa-solid fa-check-circle"></i>
+              Outreach event name — e.g. "STEAM Night at Colvin Run Elementary — hands-on demos for students."
+            </li>
+            <!-- ✏️ Add more list items as needed -->
+          </ul>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo small">DQ</span>
+        <div>
+          <div class="footer-title">Double Quarter Pounders • FTC 23928</div>
+          <div class="footer-sub">Built by students. Powered by mentors &amp; sponsors.</div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#success">Success</a>
+        <a href="index.html#updates">Updates</a>
+        <a href="about.html">About</a>
+        <a href="mailto:team23928@example.com">Mail</a>
+        <a href="https://instagram.com/ftcdoublequarterpounders" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
