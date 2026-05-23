@@ -1086,3 +1086,59 @@ img { display: block; max-width: 100%; }
 .ss-dot:hover {
   background: rgba(255,255,255,0.75);
 }
+
+
+/* ════════════════════════════════════════
+   LEGAL NOTICE BAR
+════════════════════════════════════════ */
+.legal-bar {
+  background: #1a110a;
+  border-top: 1px solid rgba(200,146,42,0.18);
+  padding: 20px 0;
+}
+
+.legal-main {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.65;
+  margin: 0 0 10px 0;
+}
+
+.legal-main a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.legal-main a:hover {
+  color: var(--gold-light);
+  text-decoration: underline;
+}
+
+.legal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  font-size: 11px;
+  color: rgba(255,255,255,0.30);
+}
+
+.legal-meta a {
+  color: rgba(255,255,255,0.40);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.legal-meta a:hover {
+  color: var(--gold);
+}
+
+.legal-sep {
+  color: rgba(255,255,255,0.18);
+}
+
+@media (max-width: 560px) {
+  .legal-meta { gap: 4px; }
+  .legal-sep { display: none; }
+  .legal-meta span, .legal-meta a { display: block; }
+}
